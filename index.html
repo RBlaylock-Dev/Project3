@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: tahoma;
+            text-align: center;
+        }
+
+        header {
+            letter-spacing: 6px;
+            background: royalblue;
+            padding: 20px;
+            color: white;
+        }
+
+        h2 {
+            font-size: 2em;
+            width: 100%;
+        }
+
+        section {
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            background-color: ivory;
+            margin: 25px;
+            padding: 25px;
+            box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        @media screen and (min-width: 50em) {
+            .card {
+                flex-basis: 325px;
+            }
+
+            header h1 {
+                font-size: 5em;
+            }
+        }
+
+        .icons {
+            font-size: 8em;
+            padding: 25px;
+        }
+
+        button,
+        .button {
+            background: royalblue;
+            border: 0;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .blue {
+            background: teal;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        table {
+            margin: auto;
+        }
+
+        #my-order {
+            background-color: #29C1C4;
+            padding: 25px;
+            display: none;
+        }
+        .footer {
+            padding: 30px;
+            background: grey;
+        }
+        .container {
+        
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>WiFi Guys CPR, LLC</h1>
+        <h4>Where all your devices are saved</h4>
+    </header>
+    <section>
+        <h2>WELCOME:</h2>
+        <p>VISION: Saving your devices with friendly service, quickly and at a reasonable price without breaking your
+            bank account.</p>
+        <br><br>
+        <p>ABOUT US: Founded in 2023, by Robert Blaylock. We are still acquiring our clientele but hope to grow pretty
+            quickly and sufficiently</p>
+    </section>
+    <section class=" blue container">
+        <h2> OUR SERVICES://</h2>
+        <article class="card">
+            <div class="icons"> &#10084;</div>
+            <h3>Phone & Table Screen Repair</h3>
+            <p>Cracked phone or tablet screen? We can repair that for you at a very low price within a timely manner.</p>
+        </article>
+        <article class="card">
+            <div class="icons"> &#10084;</div>
+            <h3>Virus Removal</h3>
+            <p>COmputer got a virus or running slow? We can fix that for you and speed that computer up for you and have it running like brand new. </p>
+        </article>
+    </section>
+    <section class=" container" style="background-color:deeppink;">
+        <h2> OUR TEAM: </h2>
+        <article class="card">
+            <div class="icons"> &#10084;</div>
+            <h3>Robert Blaylock</h3>
+            <p>Web Developer/Owner - Repairs all devices, designs the website and keeps it up and running.</p>
+            <button>Contact</button>
+        </article>
+        <article class="card">
+            <div class="icons"> &#10084;</div>
+            <h3>Tyler Letson</h3>
+            <p>Secretary & Face of the business. Handles the marketing and advertising and dealing with the customers
+            </p>
+            <button>Contact</button>
+        </article>
+    </section>
+    <section>
+        <h2> MY ORDER FORM: </h2>
+        <form id="my-form">
+            <table>
+                <tr>
+                    <td> Name: </td>
+                    <td><input type="text" size="25" name="my-name"></td>
+                </tr>
+
+                <tr>
+                    <td> Address: </td>
+                    <td><input type="text" size="25" name="my-address"></td>
+                </tr>
+
+                <tr>
+                    <td> Favorite drink: </td>
+                    <td>
+                        <select name="my-drink">
+                            <option> Milk </option>
+                            <option> Coffee </option>
+                            <option> Tea</option>
+                            <option> Soda </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Quantity: </td>
+                    <td><input type="number" name="my-qty" value="1" min="1" max="5">
+                        <small>(max 5)</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input class="button" type="button" value="Process Order" onclick="placeOrder();">
+                        <input class="button" type="reset" value="Clear"
+                            onclick="document.getElementById('my-order').style.display = 'none'" ;>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <div id="my-order"></div>
+        </form>
+    </section>
+    <div class="footer">
+        <h3>Thanks for visiting.</h3>
+        <div class="container">
+            <article class="card"><h3>Get in Touch.</h3>
+            <p>The best priced tech repair in all of Savannah.</p> </article>
+            <article class="card"><h3>Contact Us:</h3>
+            <p>We would love to hear from you.<br> Call or email us. <br> Mobile: (731) 300-8706</p>
+        </article>
+        </div>
+        &copy; 2023 WiFi Guys CPR, LLC
+    </div>
+    <script>
+        function placeOrder() {
+            var orderForm = document.getElementById("my-form");
+            results = "<h3>Success!<h3> Here is your order.";
+            results += "<br>Name: " + orderForm.elements["my-name"].value;
+            results += "<br>Address: " + orderForm.elements["my-address"].value;
+            results += "<br>I like to order: " + orderForm.elements["my-drink"].value;
+            results += "<br>Quantity: " + orderForm.elements["my-qty"].value
+            var orderResults = document.getElementById("my-order");
+            orderResults.style.display = "block";
+            orderResults.innerHTML = results;
+        }
+    </script>
+</body>
+
+</html>
